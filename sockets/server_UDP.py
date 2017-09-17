@@ -7,7 +7,7 @@ characters.
 
 Usage:
 
-    python server_UDP -P <Port to listen on>
+    python server_UDP.py -P <Port to listen on>
     
 """
 
