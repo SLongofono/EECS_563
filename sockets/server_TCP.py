@@ -17,7 +17,9 @@ import argparse
 # Converts string argument to their uppercase representation
 def convert(myStr):
     if(type(myStr) != str):
-        raise RuntimeException('Cannot convert non-string input to lower case.  Please pass in a string')
+        raise RuntimeException(
+        'Cannot convert non-string input to lower case.'
+        ' Please pass in a string')
     return myStr.upper()
 
 # Per instructions, "print the address and port using a function"
@@ -28,7 +30,11 @@ IP_ADDR = '127.0.0.1' # Use localhost
 BUFLEN = 2048
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--port', '-P', type=int, help='The desired port for socket communication', required=True)
+parser.add_argument('--port',
+                    '-P',
+                    type=int,
+                    help='The desired port for socket communication',
+                    required=True)
 args = parser.parse_args()
 
 PORT = args.port
@@ -36,6 +42,9 @@ PORT = args.port
 print("Listening at IP address {} on port {}...".format(IP_ADDR, PORT))
 
 try:
+
+    connection = None
+
     # Set up connection
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((IP_ADDR, PORT))
