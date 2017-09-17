@@ -6,7 +6,7 @@ and gathers the reply.
 
 Usage:
 
-    python client_TCP.py -A <IP Address of the remote server> -P <Desired port on the remote server>
+    python client_TCP.py --help
     
 """
 
@@ -16,7 +16,8 @@ import argparse
 # Trims input to expected maximum size
 def trim(myStr):
     if len(myStr) > 2048:
-        print("Your input was larger than the maximum of {} bytes and has been truncated to fit.".format(BUFLEN))
+        print("Your input was larger than the maximum of {} bytes and has"
+              "been truncated to fit.".format(BUFLEN))
         return myStr[:2048-len(myStr)]
     return myStr
 
@@ -27,17 +28,28 @@ def print_address_port(a,b):
 BUFLEN = 2048
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--port', '-P', type=int, help='The desired port for socket communication', required=True)
-parser.add_argument('--address', '-A', type=str, help='The IP address of the remote server to connect to', required=True)
+parser.add_argument('--port',
+                    '-P',
+                    type=int,
+                    help='The desired port on the remote server',
+                    required=True)
+parser.add_argument('--address',
+                    '-A',
+                    type=str,
+                    help='The IP address of the remote server to connect to',
+                    required=True)
 
 args = parser.parse_args()
 
 PORT = args.port
 SERVER_ADDR = args.address
 
-print("Attempting to connect to IP address {} on port {}...".format(SERVER_ADDR, PORT))
+print("Attempting to connect to IP address {}"
+      "on port {}...".format(SERVER_ADDR, PORT))
 
 try:
+    sock = None
+
     # Set up connection
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((SERVER_ADDR, PORT))
