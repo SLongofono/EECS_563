@@ -27,7 +27,11 @@ def print_address_port(a,b):
 BUFLEN = 2048
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--port', '-P', type=int, help='The desired port to listen on', required=True)
+parser.add_argument('--port',
+                    '-P',
+                    type=int,
+                    help='The desired port to listen on',
+                    required=True)
 
 args = parser.parse_args()
 
@@ -50,7 +54,7 @@ try:
             localaddr, localport = sock.getsockname()
             print_address_port(localaddr, localport)
 
-            print("Received {} from a client...".format(payload)
+            print("Received {} from a client...".format(payload))
             print("Remote details:\n")
             print_address_port(address[0], address[1])
 
