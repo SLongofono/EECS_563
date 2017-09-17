@@ -6,7 +6,7 @@ and gathers the reply.
 
 Usage:
 
-    python client_UDP -A <IP Address of the remote server> -P <Desired port on the remote server>
+    python client_UDP.py -A <IP Address of the remote server> -P <Desired port on the remote server>
     
 """
 
