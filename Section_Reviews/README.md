@@ -1,0 +1,1 @@
+These are study guides prepared for the 4 exams in this class.  This course covered an insane amount of material for a three credit hour course.  These guides are my attempt to condense the thousands of slides we we subjected to every week.
